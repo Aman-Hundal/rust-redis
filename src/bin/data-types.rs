@@ -28,14 +28,14 @@ fn main() {
     // A String is a growable heap allocated sequence of characters. Dynamically sized (not fixed at 4 bits like char)
     let c = 'c'; // char inferred
     let z: char = 'ℤ';
-    let name: String = "Aman";
+    let name: &str = "Aman";
 
     // Compound Types - Primitive Types = 1.Tuple, 2. Array. Compound types can group multiple values into one type (tuple or array)
     
     //Tuple - is a general way of grouping together a number of values with a variety of types into one compound type. 
     // Tuples have a FIXED LENGTH  (once declared they cannot grow or shrink in size).
     // Tuples are created by writing comma seperated values in (). Each position in the tuple has a type and the types of the different values do not have to be the same
-    let tup: (i32, f64, char, String) = (500, 6.4, 'c', "Aman");
+    let tup: (i32, f64, char, &str) = (500, 6.4, 'c', "Aman");
     // To get values of out of a tuple we can use pattern matching to destructure a tuple value
     let (x,y,z,g) = tup;
     println!("the value of y is {y}"); // will return 6.4
@@ -52,7 +52,7 @@ fn main() {
     // Arrays vs Vectors -> Vectors are a similar collection type povided by the standard rust lib, BUT ARE ALLOWED TO GROW OR SHRINK IN SIZE. More flexible than arrays.
     // Arrays are beter to use when you know the number of elements will not need to change (like if you are using a list of names of the months)
     // You can also iniatliaze an array to contain the same value for each element as follows
-    let threeByFive: [3; 5];
+    let three_by_five = [5; 3];
     //Accessing Array elements = SAME As all other programing languages
     // Invalid array element acces -> RUNTIME error in RUST and the program will panic
     //This is an example of Rust’s memory safety principles in action. In many low-level languages, this kind of check is not done, and when you provide an incorrect index, invalid memory can be accessed
